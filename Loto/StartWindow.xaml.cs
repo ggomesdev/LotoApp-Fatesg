@@ -31,5 +31,18 @@ namespace Loto
         {         
             
         }
+
+        private async void btnMegaSena_Click(object sender, RoutedEventArgs e)
+        {
+            JsonWebClient client = new JsonWebClient();
+            var resp = await client.DoRequestJsonAsync<Newtonsoft.Json.Linq.JObject>("http://confiraloterias.com.br/api0/json.php?loteria=lotofacil&token=6nDwFOgoJRxrNQO");
+            string result = "about property value is: " + resp["concurso"];
+            string result2 = resp["concurso"]["numero"].ToString();
+
+            string teste = "delta";
+               
+            //resultText.Text = result;
+
+        }
     }
 }
